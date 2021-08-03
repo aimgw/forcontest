@@ -1,12 +1,10 @@
 //繰り返し二乗法
-const int M = 1000000007;
-
-ll pow(int x, int n){
-    if(n == 0)
-        return 1;
-    ll res = pow(x * x % M, n / 2);
-    if(n % 2 == 1){
-        res = res * x % M;
+template<typename> T pow(int x, int n){
+    T res = 1;
+    while(n > 0){
+        if(n&1 == 1) res *= x;
+        x *= x;
+        n >>= 1;
     }
     return res;
 }
