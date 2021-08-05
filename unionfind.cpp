@@ -1,57 +1,30 @@
-//互いに素な集合
-class DisjointSet
-{
-    public:
-        vector<int> rank, p;
+struct unionfind{
+    vector<int> v;
 
-        DisjointSet() {}
-        DisjointSet(int size)
-        {
-            rank.resize(size, 0);
-            p.resize(size, 0);
-            for (int i = 0; i < size; i++)
-            {
-                makeSet(i);
-            }
-        }
+    unionfind(int n) {
+        v.resize(n, -1);
+    }
 
-        void makeSet(int x)
-        {
-            p[x] = x;
-            rank[x] = 0;
-        }
+    int find(int a){
+        if(v[a] < 0) return a;
+        return v[a] = find(v[a]);
+    }
 
-        bool same(int x, int y)
-        {
-            return findSet(x) == findSet(y);
-        }
+    bool unite(int a, int b){
+        a = find(a);
+        b = find(b);
+        if(a == b) return false;
+        if(v[a] > v[b]) swap(a, b);
+        v[a] += v[b];
+        v[b] = a;
+        return true;
+    }
 
-        void unite(int x, int y)
-        {
-            link(findSet(x), findSet(y));
-        }
+    int size(int a){
+        return -(v[find(a)]);
+    }
 
-        void link(int x, int y)
-        {
-            if (rank[x] > rank[y])
-            {
-                p[y] = x;
-            }
-            else
-            {
-                p[x] = y;
-                if (rank[x] == rank[y])
-                {
-                    rank[y]++;
-                }
-            }
-        }
-        int findSet(int x)
-        {
-            if (x != p[x])
-            {
-                p[x] = findSet(p[x]);
-            }
-            return p[x];
-        }
+    bool same(int a, int b){
+        return (find(a) == find(b));
+    }
 };
