@@ -1,5 +1,5 @@
 //modの世界での計算の定義
-//https://github.com/atcoder/live_library/blob/master/mint.cpp
+//(参考)https://github.com/atcoder/live_library/blob/master/mint.cpp
 const int mod = 1000000007;
 struct mint {
     ll x; // typedef long long ll;
