@@ -1,7 +1,8 @@
 //素因数分解
-map<int, int> prime_fac(int x){
-    map<int, int> res;
-    for(int i=2; i*i <= x; i++){
+template <typename T>
+map<T, T> prime_fac(T x){
+    map<T, T> res;
+    for(T i=2; i*i <= x; i++){
         while(x % i == 0){
             ++res[i];
             x /= i;
@@ -13,9 +14,10 @@ map<int, int> prime_fac(int x){
 
 
 //約数の列挙
-vector<int> div(int x){
-    vector<int> res;
-    for(int i=1; i*i <= x; i++){
+template <typename T>
+vector<T> div(T x){
+    vector<T> res;
+    for(T i=1; i*i <= x; i++){
         if(x%i == 0){
             res.push_back(i);
             if(i != x / i) res.push_back(x / i);
