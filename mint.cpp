@@ -1,6 +1,7 @@
 //modの世界での計算の定義
 //(参考)https://github.com/atcoder/live_library/blob/master/mint.cpp
 const int mod = 1000000007;
+const int mod = 998244353;
 struct mint {
     ll x; // typedef long long ll;
     mint(ll x=0):x((x%mod+mod)%mod){}
