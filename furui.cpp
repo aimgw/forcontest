@@ -5,7 +5,7 @@ int sosu[M];
 
 void furui(){
     for (int i = 2; i <= M; i++)
-        sosu[M] = 1;
+        sosu[i] = 1;
     for (int i = 2; i*i <= M; i++)
     {
         if(sosu[i])
