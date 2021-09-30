@@ -1,5 +1,5 @@
 //繰り返し二乗法
-template<typename> T pow(int x, int n){
+template<typename T> T pow(int x, int n){
     T res = 1;
     while(n > 0){
         if(n&1 == 1) res *= x;
